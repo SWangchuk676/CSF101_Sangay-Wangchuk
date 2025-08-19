@@ -14,5 +14,5 @@ for fruit in fruits:
 for i in range(1, 4):
     for j in range(1, 4):
         print(f"{i} * {j} = {i*j}")
-    print()  #Print a newline after each inner loop
+    print() 
     
