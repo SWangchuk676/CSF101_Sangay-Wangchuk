@@ -2,11 +2,11 @@ class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
+
 class LinkedList:
     def __init__(self):
         self.head = None
 
-class LinkedList:
     def append(self, data):
         new_node = Node(data)
         if not self.head:
@@ -15,7 +15,7 @@ class LinkedList:
         current = self.head
         while current.next:
             current = current.next
-            current.next = new_node
+        current.next = new_node
 
     def display(self):
         elements = []
@@ -24,6 +24,7 @@ class LinkedList:
             elements.append(current.data)
             current = current.next
         print(" -> ".join(map(str, elements)))
+
     def insert(self, data, position):
         new_node = Node(data)
         if position == 0:
@@ -33,9 +34,10 @@ class LinkedList:
         current = self.head
         for _ in range(position - 1):
             if current is None:
-                raise IndexError("position out of range")
+                raise IndexError("Position out of range")
             current = current.next
-            current.next = new_node
+        new_node.next = current.next
+        current.next = new_node
 
     def delete(self,data):
         if not self.head:
@@ -69,6 +71,7 @@ class LinkedList:
             prev = current
             current = next_node
         self.head = prev
+
 # Test the append method
 ll = LinkedList()
 ll.append(1)
@@ -82,5 +85,4 @@ ll.display()
 print(ll.search(4))  
 print(ll.search(5))
 ll.reverse()
-ll.display()    
-
+ll.display()
